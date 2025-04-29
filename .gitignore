@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Typescript
+*.tsbuildinfo
+*.d.ts
+dist/
+out/
+build/
+
+# npm packages
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NPM publish artifacts
+*.tgz
+
+# Ignore environment files (optional, if you use environment variables)
+.env
+.env.local
+.env.*.local
