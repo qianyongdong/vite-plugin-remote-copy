@@ -29,12 +29,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/vite-plugin-remote-copy"
+    "url": "https://github.com/qianyongdong/vite-plugin-remote-copy.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/vite-plugin-remote-copy/issues"
+    "url": "https://github.com/qianyongdong/vite-plugin-remote-copy.git/issues"
   },
-  "homepage": "https://github.com/your-username/vite-plugin-remote-copy#readme",
+  "homepage": "https://github.com/qianyongdong/vite-plugin-remote-copy.git#readme",
   "devDependencies": {
     "@types/node": "^22.15.3",
     "tsup": "^7.2.0",
