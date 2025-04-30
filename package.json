@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-remote-copy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Vite plugin to download remote assets or copy local files into the dist directory during build.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,8 @@
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm,cjs --clean",
     "dev": "tsup src/index.ts --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release": "bumpp && pnpm publish"
   },
   "keywords": [
     "vite",
@@ -38,6 +39,7 @@
   "homepage": "https://github.com/qianyongdong/vite-plugin-remote-copy.git#readme",
   "devDependencies": {
     "@types/node": "^22.15.3",
+    "bumpp": "^10.1.0",
     "tsup": "^7.2.0",
     "typescript": "^5.3.3"
   },
