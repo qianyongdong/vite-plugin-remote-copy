@@ -1,0 +1,25 @@
+name: Release                                                  
+
+on:                                                  
+  push:                                                  
+    tags:                                                  
+      - 'v*.*.*' # 仅在匹配 vX.X.X 格式的 Tag 推送时触发
+
+jobs:                                                  
+  release:                                                  
+    runs-on: ubuntu-latest                                                  
+    steps:                                                  
+      - name: Checkout code
+        uses: actions/checkout@v3                                                  
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:                                                  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:                                                  
+          tag_name: ${{ github.ref_name }} # 使用当前推送的 Tag
+          release_name: ${{ github.ref_name }}
+          body: |                                                  
+            Automatically generated release for version ${{ github.ref_name }}.
+          draft: false                                                  
+          prerelease: false}
