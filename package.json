@@ -16,7 +16,7 @@
     "build": "tsup src/index.ts --dts --format esm,cjs --clean",
     "dev": "tsup src/index.ts --watch",
     "prepublishOnly": "npm run build",
-    "release": "bumpp && pnpm publish"
+    "release": "bumpp && npm --registry=https://registry.npmjs.org"
   },
   "keywords": [
     "vite",
