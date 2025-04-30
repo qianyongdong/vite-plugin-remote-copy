@@ -1,25 +1,27 @@
-name: Release                                                  
+name: Release
 
-on:                                                  
-  push:                                                  
-    tags:                                                  
-      - 'v*.*.*' # 仅在匹配 vX.X.X 格式的 Tag 推送时触发
+on:
+  push:
+    tags:
+      - 'v*'
 
-jobs:                                                  
-  release:                                                  
-    runs-on: ubuntu-latest                                                  
-    steps:                                                  
-      - name: Checkout code
-        uses: actions/checkout@v3                                                  
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:                                                  
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:                                                  
-          tag_name: ${{ github.ref_name }} # 使用当前推送的 Tag
-          release_name: ${{ github.ref_name }}
-          body: |                                                  
-            Automatically generated release for version ${{ github.ref_name }}.
-          draft: false                                                  
-          prerelease: false}
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
